@@ -1,0 +1,288 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #E8D9D6;
+}
+
+.layout {
+    display: grid;
+    grid-template-areas: 
+        "text image"
+        "card card";
+    width: 100vw;
+}
+.circle_load {
+    background-color: rgb(54, 54, 58);
+    height: 50px;
+    width: 50px;
+    position: fixed;
+    bottom: 5vw;
+    border-radius: 50%;
+    animation: loading 1.5s ease infinite ;
+}
+
+
+.load-2 {
+    right: 6vw;
+    animation-delay: .4s;
+}
+
+.load-3 {
+    right: 9.2vw;
+    animation-delay: .6s;
+}
+.text-container {
+    grid-area: text;
+    margin-left: 4vw;
+    height: fit-content;
+
+    .drink-icon {
+        position: relative;
+        top: 4vw;
+        width: 10vw;
+    }
+
+    .title {
+        font-size: 6vw;
+    }
+
+    .main-text {
+        font-size: 1.8vw;
+        margin-top: 1vw;
+    }
+
+    button {
+        font-size: 1.2vw;
+        padding: 1vw 1.7em;
+        border-radius: 40px;
+        border: none;
+        background-color: #2f2f2f;
+        color: #fff;
+        margin-top: 3vh;
+        cursor: pointer;
+        transition: .5s ease;
+      
+    }
+
+    button:hover {
+        transition: .5s ease;
+        transform: scale(1.1);
+        background-color: #746e6e
+    }
+}
+
+.right-image-container {
+    grid-area: image;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    
+
+    .background {
+        width: 37vw;
+    }
+
+    .back-shapes {
+        position: absolute;
+        z-index: 1;
+        right: 1vw;
+        top: 10vw;
+        width: 34vw;
+    }
+    
+    .coffe-image {
+        position: absolute;
+        right: 8vw;
+        top: 2vw;
+        z-index: 2;
+        width: 20vw;
+        transition: .7s ease;
+    }
+
+    .coffe-image:hover {
+        transform: scale(1.2);
+    }
+}
+
+.bottom-row-container {
+    grid-area: card;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0vh;
+    justify-self: center;
+    gap: 4%;
+    margin-top: 6vh;
+
+    img {
+        width: 12vw;
+        height: 15vw;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: row;
+        background-color: #fff;
+        width: 30vw;
+        height: fit-content;
+        border-radius: 130px;
+        transition: .5s ease;
+
+        .card-text {
+            display: flex;
+            flex-direction: column;
+            margin-left: 1.5vw;
+            margin-top: 2.5vh;
+
+            h1 {
+                font-size: 3vw;
+            }
+
+            p {
+                font-size: 1.4vw;
+                margin-top: 1vh;
+            }
+        }
+    }
+
+    .card:hover {
+        transform: scale(1.1);
+        box-shadow: 20px 10px 70px 2px rgb(180, 179, 179);
+        background-color: #c7c3c3;
+    }
+
+    
+}
+
+
+@media screen and (max-width: 1500px) {
+
+    .circle-load {
+        display: flex;
+        left: 0;
+    }
+
+    .load-1 {
+        left: 0;
+    }
+
+    .load-2 {
+        right: 46vw;
+    }
+
+    .load-3 {
+        right: 0;
+    }
+    .layout {
+        height: 100vh;
+    }
+    .text-container {
+        margin-top: 2rem;
+        z-index: 10;
+        .title {
+            font-size: 13vw;
+        }
+
+        .drink-icon {
+            position: absolute;
+            width: 15vw;
+            top: 40vw;
+            left: 40vw;
+        }
+
+        .main-text {
+            font-size: 5vw;
+        }
+
+        button {
+            font-size: 4vw;
+            padding: 10px 1rem;
+        }
+
+      
+    }
+
+    .right-image-container {
+        position: absolute;
+        right: 0;
+        
+        .background {
+            width: 60vw;
+        }
+
+        .back-shapes {
+            width: 57vw;
+        }
+
+        .coffe-image {
+            width: 35vw;
+            top: 0vw;
+            right: 13vw;
+        }
+    }
+
+    .bottom-row-container {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-self: start;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5rem;
+        z-index: 10;
+       
+        .card {
+            width: 70vw;
+            height: 16vh;
+
+            .card-text {
+                margin-left: 1.5rem;
+                margin-top: 1em;
+                h1 {
+                    font-size: 4vw;
+                }
+
+                p {
+                    font-size: 3.5vw;
+                }
+            }
+        }
+
+        img {
+            width: 20vw;
+            height: 16vh;
+        }
+
+        .bottom-second-card {
+            margin-top: 2rem;
+        }
+
+        .bottom-third-card {
+            margin-top: 2rem;
+        }
+    }
+}
+
+/* //////////////////////// ANIMACIONES //////////////////// */
+
+@keyframes loading {
+
+    from {
+        transform: none;
+    }
+
+    50% {
+        transform:translateY(-15px);
+        background-color: rgb(139, 139, 207);    
+
+    }
+
+    to {
+        transform: none;
+        background-color: inherit;
+    }
+}
